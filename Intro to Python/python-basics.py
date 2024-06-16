@@ -37,7 +37,7 @@ else:
     print("Player is awake.")
 
 # Condition with elif
-if health <= 0:
+if health == 0:
     print("Player is passed out.")
 elif health <= 50:
     print("Player is weak.")
