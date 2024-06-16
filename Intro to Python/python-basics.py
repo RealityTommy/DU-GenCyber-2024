@@ -13,7 +13,7 @@ inventory = ["sword", "shield", "cake"]  # list data type
 money = {"copper": 25, "silver": 2}   # dictionary data type
 quests = {"eat cake"}   # set data type
 
-welcome_message = "Welcome, " + name + "!"   # strong concatenation
+welcome_message = "Welcome, " + name + "!"   # string concatenation
 
 health -= 10.0  # subtract 10.0 from number
 
