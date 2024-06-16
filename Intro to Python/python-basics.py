@@ -52,3 +52,10 @@ for item in inventory:
 while health > 0:
     health -= 10
     print(health)
+
+# Function to loop through list and output items
+def loop_list(items):
+    for item in items:
+        print(item)
+
+loop_list(inventory)
