@@ -53,9 +53,19 @@ while health > 0:
     health -= 10
     print(health)
 
-# Function to loop through list and output items
-def loop_list(items):
-    for item in items:
-        print(item)
+# Function to check which player is stronger
+def strength_check(p1, p2):
+    if p1 > p2:
+        return "Player 1 wins!"
+    
+    elif p1 < p2:
+        return "Player 2 wins!"
 
-loop_list(inventory)
+    else:
+        return "Draw!"
+
+player1 = input("What is player 1's power level? ")
+player2 = input("What is player 2's power level? ")
+
+winner = strength_check(player1, player2)
+print(winner)
