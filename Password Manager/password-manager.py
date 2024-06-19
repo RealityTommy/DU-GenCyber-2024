@@ -32,26 +32,27 @@ def decrypt(encrypted_password):
     # loop through each letter in the encrypted password to decrypt
     for letter in encrypted_password:
 
-        # make a variable to track the letter to decrype
-        previous_letter = letter
-
         # loop through the secret map keys to find the ecrypted letter
         for key in secretmap.keys():
 
-            if key == letter:
-
-                '''
-                if the letter matches the key, we know the previous letter is the original,
-                and add the value to the decrypted password
-                '''
-                decrypted_password += previous_letter
-            
-            else:
-                # if the letter doesn't match the key, we replace the "previous letter" and move on
-                previous_letter = key
+            # if the value matches the letter, add the key to the decrypted password
+            if secretmap.get(key) == letter:
+                decrypted_password += key
 
     # return the decrypted password
     return decrypted_password
+
+# get all encrypted passwords
+def get_encrypted_passwords():
+
+    # check if there are any logins
+    if logins.keys():
+
+        # display login dictionary
+        print(logins)
+
+    else:
+        print("No logins yet!") # inform user that there are no logins yet
 
 # get list of all the logins
 def get_usernames():
@@ -115,32 +116,40 @@ while True:
 
     # let users know what options they have to interact with program
     print("Options:")
-    print("1. See all current usernames")
-    print("2. Get password for a username")
-    print("3. Add a login")
-    print("4. Remove a login")
-    print("5. Exit")
+    print("1. See all encrypted passwords")
+    print("2. See all usernames")
+    print("3. Get password for a username")
+    print("4. Add a login")
+    print("5. Remove a login")
+    print("6. Exit")
 
     print() # empty line for styling
 
-    choice = input("Enter your choice (1-5): ") # get user option selection
+    choice = input("Enter your choice (1-6): ") # get user option selection
 
     print() # empty line for styling
 
     # exit program
-    if choice == "5":
+    if choice == "6":
         print("Exiting...")
         break
 
-    # provide usernames
     elif choice == "1":
+
+        # get all encrypted passwords
+        get_encrypted_passwords()
+
+        print() # empty line for styling
+
+    # provide usernames
+    elif choice == "2":
         print("Saved usernames:")
         get_usernames()
 
         print() # empty line for styling
     
     # get a password
-    elif choice == "2":
+    elif choice == "3":
         username = input("What's the username? ")   # get username from user
 
         password = get_password(username)
@@ -148,7 +157,7 @@ while True:
         print() # empty line for styling
     
     # add login
-    elif choice == "3":
+    elif choice == "4":
         username = input("What's the username? ")    # get username from user
         password = input("What's the password? ")    # get password from user
 
@@ -157,7 +166,7 @@ while True:
         print() # empty line for styling
     
     # remove login
-    elif choice == "4":
+    elif choice == "5":
         username = input("What's the username? ")    # get username from user
 
         remove_login(username)  # remove login
