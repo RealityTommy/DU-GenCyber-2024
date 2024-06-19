@@ -53,27 +53,6 @@ def decrypt(encrypted_password):
     # return the decrypted password
     return decrypted_password
 
-# add a new login
-def add_login(username, password):
-    encrypted_password = encrypt(password)  # encrypt password
-    
-    logins[username] = encrypted_password   # create new key value pair in logins dictionary
-
-    print("Added new login for username:", username)    # inform user that login has been added
-
-# remove a login
-def remove_login(username):
-    
-    # check if there's already a login for this username
-    if logins.get(username):
-
-        logins.pop(username)    # remove key value pair from logins with username
-        
-        print("Removed login for username:", username)  # inform user that login has been removed
-    
-    else:
-        print("There isn't a login for this username!") # inform the user is there isn't a login
-
 # get list of all the logins
 def get_usernames():
 
@@ -102,14 +81,36 @@ def get_password(username):
         # inform the user is there isn't a login
         print("There isn't a login for this username!")
 
+# add a new login
+def add_login(username, password):
+    encrypted_password = encrypt(password)  # encrypt password
+    
+    logins[username] = encrypted_password   # create new key value pair in logins dictionary
+
+    print("Added new login for username:", username)    # inform user that login has been added
+
+# remove a login
+def remove_login(username):
+    
+    # check if there's already a login for this username
+    if logins.get(username):
+
+        logins.pop(username)    # remove key value pair from logins with username
+        
+        print("Removed login for username:", username)  # inform user that login has been removed
+    
+    else:
+        print("There isn't a login for this username!") # inform the user is there isn't a login
+
+
+'''
+Interactable Program
+'''
 
 print("Welcome to Password Manager!")
 
 print() # empty line for styling
 
-'''
-Interactable Program
-'''
 while True:
 
     # let users know what options they have to interact with program
