@@ -8,6 +8,10 @@ secretmap = {"a": "b", "b": "c", "c": "d", "d": "e", "e": "f", "f": "g", "g": "h
 # dictionary of logins
 logins = {}
 
+'''
+Functions
+'''
+
 # encrypt string
 def encrypt(raw_password):
     encrypted_password = "" # empty string to hold encrypted password
@@ -103,7 +107,12 @@ print("Welcome to Password Manager!")
 
 print() # empty line for styling
 
+'''
+Interactable Program
+'''
 while True:
+
+    # let users know what options they have to interact with program
     print("Options:")
     print("1. See all current usernames")
     print("2. Get password for a username")
@@ -113,7 +122,7 @@ while True:
 
     print() # empty line for styling
 
-    choice = input("Enter your choice (1-5): ")
+    choice = input("Enter your choice (1-5): ") # get user option selection
 
     print() # empty line for styling
 
