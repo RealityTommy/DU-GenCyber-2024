@@ -84,11 +84,19 @@ def get_password(username):
 
 # add a new login
 def add_login(username, password):
-    encrypted_password = encrypt(password)  # encrypt password
-    
-    logins[username] = encrypted_password   # create new key value pair in logins dictionary
 
-    print("Added new login for username:", username)    # inform user that login has been added
+    # check if there's already a login for this username
+    if logins.get(username):
+
+        # inform the user that the login already exists
+        print("This login already exists.")
+    
+    else:
+        encrypted_password = encrypt(password)  # encrypt password
+        
+        logins[username] = encrypted_password   # create new key value pair in logins dictionary
+
+        print("Added new login for username:", username)    # inform user that login has been added
 
 # remove a login
 def remove_login(username):
